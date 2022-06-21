@@ -1,6 +1,7 @@
-push:  # 指定触发事件
-  branches:
-    - main  # 指定触发 action 的分支
+on:
+  push:  # 指定触发事件
+    branches:
+      - main  # 指定触发 action 的分支
 
 jobs:
   main:
