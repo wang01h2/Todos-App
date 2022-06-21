@@ -1,36 +1,28 @@
 name: CI
-
 on:
   push:
     branches:
       - main
-
-  pull_request:
-    branches:
-      - main
-
 jobs:
-
-  build:
-    runs-on: ubuntu-latest #nodejs执行的操作系统
-
-    strategy:
-      matrix:
-        node: [16.x]
-      fail-fast: false
-
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: 使用 Node.js ${{ matrix.node-version }}开始搞事情
-        uses: actions/setup-node@v3
+      - name: Checkout 🛎️ # 将代码拉取到虚拟机
+        uses: actions/checkout@v3
+
+      # 指定 node 版本
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '14'
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: Install and Build 🔧 # 安装依赖、打包，如果提前已打包好无需这一步
+        run: |
+          npm install
+          npm run build
 
-      - name: Install
-        run: nci
-
-      - name: Build
-        run: nr build
+      - name: Deploy 🚀 # 部署
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # 部署后提交到那个分支
+          folder: dist # 这里填打包好的目录名称
