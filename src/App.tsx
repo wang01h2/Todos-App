@@ -18,7 +18,7 @@ function createLocalStore(defaultValue: ITodoStore) {
     return {state, setState};
 }
 
-let TodoApp = () => {
+let App = () => {
     let ulBoxRef: HTMLUListElement | undefined = undefined;
     onMount(() => {
         if (ulBoxRef != undefined) {
@@ -203,4 +203,4 @@ let TodoApp = () => {
         </section>
     );
 };
-export default TodoApp;
+export default App;
