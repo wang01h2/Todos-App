@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
   '@formkit/auto-animate': 1.0.0-beta.1
@@ -11,7 +11,7 @@ specifiers:
 
 dependencies:
   '@formkit/auto-animate': 1.0.0-beta.1
-  solid-auto-animate: 0.1.0_6gjph5533ss6y5knwazsgmwaia
+  solid-auto-animate: 0.1.0_f192f3f7bbdca5ec754db0332332c040
   solid-js: 1.4.2
   todomvc-app-css: 2.4.2
 
@@ -805,7 +805,7 @@ packages:
     hasBin: true
     dev: true
 
-  /solid-auto-animate/0.1.0_6gjph5533ss6y5knwazsgmwaia:
+  /solid-auto-animate/0.1.0_f192f3f7bbdca5ec754db0332332c040:
     resolution: {integrity: sha512-dPXrWBYGQsvgJ4lBTPpavH5WfttbwWrkrCeK4PK3tX3uoT73qvS9WtS0Fi1Zxgu4aQfISYizM0kKPaSPXfCa/A==}
     engines: {node: '>=10'}
     peerDependencies:
